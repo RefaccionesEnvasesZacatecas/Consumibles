@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Almacén Partes y Refacciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #232222;
+            color: white;
+            padding: 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 19px;
+       }    
+            header h1 a {
+            color: #f8e126;
+            text-decoration: none;
+        }
+
+         .logo-derecho,
+         .logo-izquierdo {
+            max-width: 120px;
+            height: auto;
+            margin: 10px;
+        }
+
+        nav {
+            background-color: #232222;
+            padding: 10px 20px;
+          
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            padding: 5px 3.5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ddd;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 21px;
+            margin-bottom: 60px;
+
+        }
+        .productos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .producto {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            display: flex; 
+            align-items: center; 
+            width: 350px;
+            transition: transform 0.3s ease-in-out; 
+        }
+
+        .producto .imagen {
+            flex: 0 0 40%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .producto .contenido {
+            flex: 0 0 60%;
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+         }
+
+        .producto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .producto h4 {
+            margin-top: 0px;
+            margin-bottom: 4px;
+            text-align: center;
+            font-size: 14px;
+            color: #033C40;
+        }
+
+        .producto p {
+            margin-top: 0px;
+            margin-bottom: 6px;
+            text-align: center;
+            font-size: 13px;
+        }
+        .producto select {
+            width: 30%; 
+            padding: 0px; 
+            margin-top: 0px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            display: inline-block; 
+        }
+        
+
+        footer {
+            background-color: #232222;
+            color: white;
+            text-align: center;
+            padding: 0.5px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #buscador {
+            background-color: #232222;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #buscador input[type="text"] {
+            padding: 8px;
+            width: 220px;
+            margin-right: 10px;
+            border: none;
+        }
+
+        #buscador input[type="submit"] {
+            padding: 8px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #nota {
+            font-style: italic;
+            color: gray;
+            margin-left: auto;
+            font-size: 13px;
+        }
+
+      
+
+             @media (max-width: 768px) {
+            header {
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                flex-wrap: wrap;
+                font-size: 7px;
+                margin-bottom: 0px;
+                margin-top: 0px;
+                padding: 8px 8px 0px 8px;
+
+            }
+
+            .logo-izquierdo,
+            .logo-derecho {
+                max-width: 48px;
+                height: auto;
+                margin: 5px;
+            }
+            body {
+                font-size: 12px;
+            }
+                   #buscador {
+                order: 2;
+                width: 100%;
+                margin-top: 0px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #buscador input[type="text"] {
+                width: 100%;
+                max-width: 240px;
+                margin-right: 0;
+            }
+
+            #nota {
+                order: 3;
+                font-style: italic;
+                color: gray;
+                margin-top: 2px;
+                font-size: 10px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                text-align: center;
+            }
+
+            nav {
+                order: 4;
+                margin-top: 0px;
+                text-align: center;
+                padding: 2px;     
+
+                
+            }
+
+            nav ul li {
+                display: inline-block;
+                margin-right: 5px;
+                margin-bottom: 8px;
+                font-size: 10px;
+
+            }
+
+            nav ul li a {
+                padding: 2px;     
+            }
+
+
+
+            .producto {
+                width: 45%; 
+                font-size: 7px;
+                margin: 2.5%; 
+                box-sizing: border-box;
+            }
+
+            .producto select {
+                width: 50%; 
+                font-size: 7px; 
+            }
+               
+            .producto h4 {
+                font-size: 8px;
+
+            }
+
+            .producto p {
+                font-size: 6.5px;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo_Logistica.png" alt="Logo izquierdo" class="logo-izquierdo">
+        <h1><a href="index.html">Almacén Partes y Refacciones</a></h1>
+        <div id="buscador">
+            <input type="text" id="searchInput" onkeyup="searchList()" placeholder="Buscar productos...">
+            <div id="nota">*No utilizar acentos en la búsqueda.</div>
+        </div>
+        <img src="Logo_Modelo.jpg" alt="Logo derecho" class="logo-derecho">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="Index.html">Inicio</a></li>
+            <li><a href="EPP.html">EPP</a></li>
+            <li><a href="Limpieza.html">Limpieza</a></li>
+            <li><a href="Papelería.html">Papelería</a></li>
+            <li><a href="Lubricantes.html">Lubricantes</a></li>
+            <li><a href="Productivo.html">Productivo</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="productos-container">
+            <div class="producto" id="producto18">
+                <div class="imagen">
+                    <img class="lazy" data-src="Cepillo de cerdas plasticas para plancha.png" alt="Producto 18">
+                </div>
+                <div class="contenido">
+                    <h4>Cepillo de cerdas plasticas para plancha</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5512673</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            <div class="producto" id="producto26">
+                <div class="imagen">
+                    <img class="lazy" data-src="Conos de papel con 250 piezas.png" alt="Producto 26">
+                </div>
+                <div class="contenido">
+                    <h4>Conos de papel con 250 piezas</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5512665</p>
+                    <p>CeCo:660K6101C0</p>
+                    <p>Cuenta:60001103</p>
+                </div>
+            </div>
+            <div class="producto" id="producto28">
+                <div class="imagen">
+                    <img class="lazy" data-src="Crema desengrasante para manos bote con 4 kg.png" alt="Producto 28">
+                </div>
+                <div class="contenido">
+                    <h4>Crema desengrasante para manos bote con 4 kg</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5512659</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            <div class="producto" id="producto35">
+                <div class="imagen">
+                    <img class="lazy" data-src="Detergente en polvo Roma 1 Kg (Jabon).png" alt="Producto 35">
+                </div>
+                <div class="contenido">
+                    <h4>Detergente en polvo Roma 1 Kg (Jabon)</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5518093</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            <div class="producto" id="producto37">
+                <div class="imagen">
+                    <img class="lazy" data-src="Escoba de plastico.png" alt="Producto 37">
+                </div>
+                <div class="contenido">
+                    <h4>Escoba de plastico</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5527072</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            <div class="producto" id="producto39">
+                <div class="imagen">
+                    <img class="lazy" data-src="Fibra verde de nylon 3M.png" alt="Producto 39">
+                </div>
+                <div class="contenido">
+                    <h4>Fibra verde de nylon 3M</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5500034</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            <div class="producto" id="producto52">
+                <div class="imagen">
+                    <img class="lazy" data-src="Jalador de hule con mango de metal.png" alt="Producto 52">
+                </div>
+                <div class="contenido">
+                    <h4>Jalador de hule con mango de metal</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5542305</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            <div class="producto" id="producto78">
+                <div class="imagen">
+                    <img class="lazy" data-src="Papel higienico jumbo petalo con 500 m.png" alt="Producto 78">
+                </div>
+                <div class="contenido">
+                    <h4>Papel higienico jumbo petalo con 500 m</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5502239</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            <div class="producto" id="producto102">
+                <div class="imagen">
+                    <img class="lazy" data-src="Shampoo para manos con 4 litros (jabon).png" alt="Producto 102">
+                </div>
+                <div class="contenido">
+                    <h4>Shampoo para manos con 4 litros (jabon)</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5514634</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            <div class="producto" id="producto116">
+                <div class="imagen">
+                    <img class="lazy" data-src="Toalla industrial de papel desechable.png" alt="Producto 116">
+                </div>
+                <div class="contenido">
+                    <h4>Toalla industrial de papel desechable</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5512677</p>
+                    <p>CeCo:660K6K0810</p>
+                </div>
+            </div>
+            <div class="producto" id="producto117">
+                <div class="imagen">
+                    <img class="lazy" data-src="Trapeador.png" alt="Producto 117">
+                </div>
+                <div class="contenido">
+                    <h4>Trapeador</h4>
+                    <p>Limpieza</p>
+                    <p>SKU:5527082</p>
+                    <p>CeCo:660K6K15A0</p>
+                </div>
+            </div>
+            </div>
+            </div>
+
+
+    <footer>
+        <p>&copy; 2024 Departamento de Logística</p>
+    </footer>
+
+    <script>
+        function searchList() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let productosContainer = document.querySelector('.productos-container');
+            let productos = productosContainer.querySelectorAll('.producto');
+
+            productos.forEach(producto => {
+                let texto = producto.innerText.toUpperCase();
+                let productoId = producto.id.toUpperCase();
+
+                if (texto.includes(input) || productoId.includes(input)) {
+                    producto.style.order = '0'; 
+                    producto.style.display = 'flex'; 
+                } else {
+                    producto.style.order = '1'; 
+                    producto.style.display = 'none'; 
+                }
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll("img.lazy");
+
+            function lazyLoad() {
+                lazyImages.forEach(img => {
+                    if (img.getBoundingClientRect().top < window.innerHeight && img.getBoundingClientRect().bottom > 0 && getComputedStyle(img).display !== "none") {
+                        img.src = img.dataset.src;
+                        img.classList.remove("lazy");
+                    }
+                });
+
+                if (lazyImages.length === 0) {
+                    document.removeEventListener("scroll", lazyLoad);
+                    window.removeEventListener("resize", lazyLoad);
+                    window.removeEventListener("orientationchange", lazyLoad);
+                }
+            }
+
+            document.addEventListener("scroll", lazyLoad);
+            window.addEventListener("resize", lazyLoad);
+            window.addEventListener("orientationchange", lazyLoad);
+            lazyLoad();
+        });
+    </script>
+
+</body>
+</html>

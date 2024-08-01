@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Almacén Partes y Refacciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #232222;
+            color: white;
+            padding: 10px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 19px;
+       }    
+            header h1 a {
+            color: #f8e126;
+            text-decoration: none;
+        }
+
+         .logo-derecho,
+         .logo-izquierdo {
+            max-width: 120px;
+            height: auto;
+            margin: 10px;
+        }
+
+        nav {
+            background-color: #232222;
+            padding: 10px 20px;
+          
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #FFFFFF;
+            padding: 5px 3.5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #ddd;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 21px;
+            margin-bottom: 60px;
+
+        }
+        .productos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .producto {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            display: flex; 
+            align-items: center; 
+            width: 350px;
+            transition: transform 0.3s ease-in-out; 
+        }
+
+        .producto .imagen {
+            flex: 0 0 40%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .producto .contenido {
+            flex: 0 0 60%;
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+         }
+
+        .producto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .producto h4 {
+            margin-top: 0px;
+            margin-bottom: 4px;
+            text-align: center;
+            font-size: 14px;
+            color: #033C40;
+        }
+
+        .producto p {
+            margin-top: 0px;
+            margin-bottom: 6px;
+            text-align: center;
+            font-size: 13px;
+        }
+        .producto select {
+            width: 30%; 
+            padding: 0px; 
+            margin-top: 0px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            display: inline-block; 
+        }
+        
+
+        footer {
+            background-color: #232222;
+            color: white;
+            text-align: center;
+            padding: 0.5px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #buscador {
+            background-color: #232222;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #buscador input[type="text"] {
+            padding: 8px;
+            width: 220px;
+            margin-right: 10px;
+            border: none;
+        }
+
+        #buscador input[type="submit"] {
+            padding: 8px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #nota {
+            font-style: italic;
+            color: gray;
+            margin-left: auto;
+            font-size: 13px;
+        }
+
+      
+
+             @media (max-width: 768px) {
+            header {
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                flex-wrap: wrap;
+                font-size: 7px;
+                margin-bottom: 0px;
+                margin-top: 0px;
+                padding: 8px 8px 0px 8px;
+
+            }
+
+            .logo-izquierdo,
+            .logo-derecho {
+                max-width: 48px;
+                height: auto;
+                margin: 5px;
+            }
+            body {
+                font-size: 12px;
+            }
+                   #buscador {
+                order: 2;
+                width: 100%;
+                margin-top: 0px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #buscador input[type="text"] {
+                width: 100%;
+                max-width: 240px;
+                margin-right: 0;
+            }
+
+            #nota {
+                order: 3;
+                font-style: italic;
+                color: gray;
+                margin-top: 2px;
+                font-size: 10px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                text-align: center;
+            }
+
+            nav {
+                order: 4;
+                margin-top: 0px;
+                text-align: center;
+                padding: 2px;     
+
+                
+            }
+
+            nav ul li {
+                display: inline-block;
+                margin-right: 5px;
+                margin-bottom: 8px;
+                font-size: 10px;
+
+            }
+
+            nav ul li a {
+                padding: 2px;     
+            }
+
+
+
+            .producto {
+                width: 45%; 
+                font-size: 7px;
+                margin: 2.5%; 
+                box-sizing: border-box;
+            }
+
+            .producto select {
+                width: 50%; 
+                font-size: 7px; 
+            }
+               
+            .producto h4 {
+                font-size: 8px;
+
+            }
+
+            .producto p {
+                font-size: 6.5px;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Logo_Logistica.png" alt="Logo izquierdo" class="logo-izquierdo">
+        <h1><a href="index.html">Almacén Partes y Refacciones</a></h1>
+        <div id="buscador">
+            <input type="text" id="searchInput" onkeyup="searchList()" placeholder="Buscar productos...">
+            <div id="nota">*No utilizar acentos en la búsqueda.</div>
+        </div>
+        <img src="Logo_Modelo.jpg" alt="Logo derecho" class="logo-derecho">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="Index.html">Inicio</a></li>
+            <li><a href="EPP.html">EPP</a></li>
+            <li><a href="Limpieza.html">Limpieza</a></li>
+            <li><a href="Papelería.html">Papelería</a></li>
+            <li><a href="Lubricantes.html">Lubricantes</a></li>
+            <li><a href="Productivo.html">Productivo</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="productos-container">
+            <div class="producto" id="producto1">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite Cad Tex HT 55 (19 L).png" alt="Producto 1">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite Cad Tex HT 55 (19 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:5005570</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto2">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite Delvac 1300 Super 15W-40 (208 L).png" alt="Producto 2">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite Delvac 1300 Super 15W-40 (208 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4117750</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto3">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite Mobil 600W Super (19 L).png" alt="Producto 3">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite Mobil 600W Super (19 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4101652</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto4">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite Mobil DTE 26 (208 L).png" alt="Producto 4">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite Mobil DTE 26 (208 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4074574</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto5">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite Mobil DTE Oil Heavy Medium (19 L).png" alt="Producto 5">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite Mobil DTE Oil Heavy Medium (19 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4033915</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto6">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite Mobil SHC 634 (19 L).png" alt="Producto 6">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite Mobil SHC 634 (19 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4101646</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto7">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite Mobil Spartan EP 150 (1000 L).png" alt="Producto 7">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite Mobil Spartan EP 150 (1000 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:5004840</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto8">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite Mobil Vactra 2 (19 L).png" alt="Producto 8">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite Mobil Vactra 2 (19 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4101645</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto9">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite rojo para trasmision automatica (19 L).png" alt="Producto 9">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite rojo para trasmision automatica (19 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4101648</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto10">
+                <div class="imagen">
+                    <img class="lazy" data-src="Aceite staburags NBU 12/300 KP (19 L).png" alt="Producto 10">
+                </div>
+                <div class="contenido">
+                    <h4>Aceite staburags NBU 12/300 KP (19 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4161934</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto11">
+                <div class="imagen">
+                    <img class="lazy" data-src="Anticongelante Mercedez Benz CLC (5 galones).png" alt="Producto 11">
+                </div>
+                <div class="contenido">
+                    <h4>Anticongelante Mercedez Benz CLC (5 galones)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4101655</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto12">
+                <div class="imagen">
+                    <img class="lazy" data-src="Anticongelante Mobil Permazone (19 L).png" alt="Producto 12">
+                </div>
+                <div class="contenido">
+                    <h4>Anticongelante Mobil Permazone (19 L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4101644</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto36">
+                <div class="imagen">
+                    <img class="lazy" data-src="Diluyente Thinner (200L).png" alt="Producto 36">
+                </div>
+                <div class="contenido">
+                    <h4>Diluyente Thinner (200L)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4074557</p>
+                    <p>CeCo:660K6K0810</p>
+                </div>
+            </div>
+            <div class="producto" id="producto42">
+                <div class="imagen">
+                    <img class="lazy" data-src="Grasa Mobilith SHC 460 SCT (16 Kg).png" alt="Producto 42">
+                </div>
+                <div class="contenido">
+                    <h4>Grasa Mobilith SHC 460 SCT (16 Kg)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4057569</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto43">
+                <div class="imagen">
+                    <img class="lazy" data-src="Grasa Mobilux EP 2 (16 Kg).png" alt="Producto 43">
+                </div>
+                <div class="contenido">
+                    <h4>Grasa Mobilux EP 2 (16 Kg)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4033957</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto60">
+                <div class="imagen">
+                    <img class="lazy" data-src="Lubricante Aerosol LPS Silicon (454 ml).png" alt="Producto 60">
+                </div>
+                <div class="contenido">
+                    <h4>Lubricante Aerosol LPS Silicon (454 ml)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4249884</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            <div class="producto" id="producto71">
+                <div class="imagen">
+                    <img class="lazy" data-src="Mobilgrease XHP 222 (16 Kg).png" alt="Producto 71">
+                </div>
+                <div class="contenido">
+                    <h4>Mobilgrease XHP 222 (16 Kg)</h4>
+                    <p>Lubricantes</p>
+                    <p>SKU:4101650</p>
+                    <p>CeCo:660K6K06A0</p>
+                    <p>Cuenta:60000302</p>
+                </div>
+            </div>
+            </div>
+            </div>
+
+
+    <footer>
+        <p>&copy; 2024 Departamento de Logística</p>
+    </footer>
+
+    <script>
+        function searchList() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let productosContainer = document.querySelector('.productos-container');
+            let productos = productosContainer.querySelectorAll('.producto');
+
+            productos.forEach(producto => {
+                let texto = producto.innerText.toUpperCase();
+                let productoId = producto.id.toUpperCase();
+
+                if (texto.includes(input) || productoId.includes(input)) {
+                    producto.style.order = '0'; 
+                    producto.style.display = 'flex'; 
+                } else {
+                    producto.style.order = '1'; 
+                    producto.style.display = 'none'; 
+                }
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll("img.lazy");
+
+            function lazyLoad() {
+                lazyImages.forEach(img => {
+                    if (img.getBoundingClientRect().top < window.innerHeight && img.getBoundingClientRect().bottom > 0 && getComputedStyle(img).display !== "none") {
+                        img.src = img.dataset.src;
+                        img.classList.remove("lazy");
+                    }
+                });
+
+                if (lazyImages.length === 0) {
+                    document.removeEventListener("scroll", lazyLoad);
+                    window.removeEventListener("resize", lazyLoad);
+                    window.removeEventListener("orientationchange", lazyLoad);
+                }
+            }
+
+            document.addEventListener("scroll", lazyLoad);
+            window.addEventListener("resize", lazyLoad);
+            window.addEventListener("orientationchange", lazyLoad);
+            lazyLoad();
+        });
+    </script>
+
+</body>
+</html>
