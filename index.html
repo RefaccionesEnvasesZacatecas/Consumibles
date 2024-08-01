@@ -1786,6 +1786,7 @@
     </footer>
 
     <script>
+        // Script para la búsqueda
         function searchList() {
             let input = document.getElementById('searchInput').value.toUpperCase();
             let productosContainer = document.querySelector('.productos-container');
@@ -1808,7 +1809,8 @@
                 }
             });
         }
-    </script>
+
+        // Script para la carga diferida de imágenes
         document.addEventListener("DOMContentLoaded", function() {
             const lazyImages = document.querySelectorAll("img.lazy");
 
@@ -1835,6 +1837,5 @@
             window.addEventListener("orientationchange", lazyLoad);
         });
     </script>
-
 </body>
 </html>
