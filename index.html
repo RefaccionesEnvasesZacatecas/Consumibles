@@ -893,7 +893,7 @@
                     <p>CeCo:660K6I50A0</p>
                 </div>
             </div>
-            <div class="producto" id="producto46">
+      <!--      <div class="producto" id="producto46">
                 <div class="imagen">
                    <img class="lazy" data-src="Guante de espreador.png" alt="Producto 46">
                 </div>
@@ -923,7 +923,7 @@
                </select>
                 <p>SKU: <span id="SKU4" >5517593</span></p>
                   <p>CeCo: 660K6I50A0</p>
-               </div> </div>
+               </div> </div>-->
             <div class="producto" id="producto47">
                 <div class="imagen">
                     <img class="lazy" data-src="Guante de hule adex.png" alt="Producto 47">
@@ -1796,22 +1796,25 @@
                 let productoId = producto.id.toUpperCase();
 
                 if (texto.includes(input) || productoId.includes(input)) {
-                    producto.style.order = '0'; 
                     producto.style.display = 'flex'; 
+                    // Asegúrate de que la imagen se cargue cuando el producto sea visible
+                    const img = producto.querySelector('img.lazy');
+                    if (img) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                    }
                 } else {
-                    producto.style.order = '1'; 
                     producto.style.display = 'none'; 
                 }
             });
         }
     </script>
-    <script>
         document.addEventListener("DOMContentLoaded", function() {
             const lazyImages = document.querySelectorAll("img.lazy");
 
             function lazyLoad() {
                 lazyImages.forEach(img => {
-                    if (img.getBoundingClientRect().top < window.innerHeight && img.getBoundingClientRect().bottom > 0 && getComputedStyle(img).display !== "none") {
+                    if (img.getBoundingClientRect().top < window.innerHeight && img.getBoundingClientRect().bottom > 0) {
                         img.src = img.dataset.src;
                         img.classList.remove("lazy");
                     }
@@ -1824,10 +1827,12 @@
                 }
             }
 
+            // Inicializa la carga diferida
+            lazyLoad();
+            // Añade los event listeners
             document.addEventListener("scroll", lazyLoad);
             window.addEventListener("resize", lazyLoad);
             window.addEventListener("orientationchange", lazyLoad);
-            lazyLoad();
         });
     </script>
 
