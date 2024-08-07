@@ -760,7 +760,6 @@
     </footer>
 
     <script>
-        // Script para la búsqueda
         function searchList() {
             let input = document.getElementById('searchInput').value.toUpperCase();
             let productosContainer = document.querySelector('.productos-container');
@@ -772,7 +771,6 @@
 
                 if (texto.includes(input) || productoId.includes(input)) {
                     producto.style.display = 'flex'; 
-                    // Asegúrate de que la imagen se cargue cuando el producto sea visible
                     const img = producto.querySelector('img.lazy');
                     if (img) {
                         img.src = img.dataset.src;
@@ -784,7 +782,6 @@
             });
         }
 
-        // Script para la carga diferida de imágenes
         document.addEventListener("DOMContentLoaded", function() {
             const lazyImages = document.querySelectorAll("img.lazy");
 
@@ -803,9 +800,7 @@
                 }
             }
 
-            // Inicializa la carga diferida
             lazyLoad();
-            // Añade los event listeners
             document.addEventListener("scroll", lazyLoad);
             window.addEventListener("resize", lazyLoad);
             window.addEventListener("orientationchange", lazyLoad);
