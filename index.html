@@ -912,15 +912,32 @@
 
             <div class="producto" id="producto45">
                 <div class="imagen">
-                    <img class="lazy" data-src="Guantes ringers 065 talla 9.jpeg" alt="Producto 45">
+                   <img class="lazy" data-src="Guantes ringers 065.jpeg" alt="Producto 45">
                 </div>
                 <div class="contenido">
-                    <h4>Guantes ringers 065 talla 9</h4>
+                    <h4>Guantes ringers 065</h4>
                     <p>EPP</p>
-                    <p>SKU:5538812</p>
-                    <p>CeCo:660K6I50A0</p>
-                </div>
-            </div>
+             <script>
+              function cambiarSKU9() {
+                 var select = document.getElementById("talla9");
+                 var SKU9 = document.getElementById("SKU9");
+      
+                 if (select.value === "9") {
+                     SKU9.innerHTML = "5538812";
+                 } else if () {
+                     SKU9.innerHTML = "5538812";      
+                 }
+    }
+             </script>
+               <body>
+              <p><label for="talla9">Talla:</label>
+              <select id="talla9" onchange="cambiarSKU9()">
+              <option value="9">9</option></p>
+
+               </select>
+                <p>SKU: <span id="SKU9" >5538812</span></p>
+                  <p>CeCo: 660K6I50A0</p>
+               </div> </div>
 
 
 
